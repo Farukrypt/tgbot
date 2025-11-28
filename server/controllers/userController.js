@@ -29,6 +29,8 @@ exports.register = async (req, res) => {
 
     const {
       name,
+      firstName,
+      lastName,
       email,
       country,
       phone,
@@ -38,10 +40,14 @@ exports.register = async (req, res) => {
       first_name,
       last_name,
     } = req.body;
-    req.body;
-    // If first_name/last_name provided (from Telegram), prefer them
+
+    // If first_name/last_name provided (from Telegram), prefer them; otherwise use firstName/lastName from form
+    const resolvedFirstName = firstName || first_name || 'User';
+    const resolvedLastName = lastName || last_name || '';
     const resolvedName =
-      name || [first_name, last_name].filter(Boolean).join(' ') || 'Unnamed';
+      name ||
+      [resolvedFirstName, resolvedLastName].filter(Boolean).join(' ') ||
+      'Unnamed';
 
     // If user already exists, return it (no duplicate registration)
     const existing = await User.findOne({ telegramId });

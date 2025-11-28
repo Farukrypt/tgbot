@@ -188,19 +188,19 @@ const Home = () => {
             {/* --- WINNERS CIRCLE (Testimonials) --- */}
             <div>
                 <h3 className="mb-3 text-lg font-bold text-white">{t.winners || "Winners Circle"}</h3>
-                <div className="scrollbar-hide flex gap-4 overflow-x-auto pb-4">
+                <div className="scrollbar-hide flex gap-3 overflow-x-auto pb-4">
                     {[
                         { id: 1, image: testimonial1 },
                         { id: 2, image: testimonial2 },
                         { id: 3, image: testimonial3 }
                     ].map((testimonial) => (
-                        <div key={testimonial.id} className="flex min-w-[140px] flex-col items-center rounded-xl border border-white/10 bg-brand-light-purple p-4 shadow-md">
-                            <div className="mb-2 h-12 w-12 overflow-hidden rounded-full border-2 border-brand-orange bg-gray-700">
+                        <div key={testimonial.id} className="flex min-w-[100px] flex-col items-center rounded-lg border border-white/10 bg-brand-light-purple p-2 shadow-md">
+                            <div className="mb-1 h-10 w-10 overflow-hidden rounded-full border-2 border-brand-orange bg-gray-700">
                                 {/* Testimonial Avatar Image */}
                                 <img src={testimonial.image} alt="Testimonial" className="h-full w-full object-cover" />
                             </div>
-                            <div className="text-brand-yellow mb-1 text-xs">★★★★★</div>
-                            <div className="text-center text-xs italic text-white">"{t.winInstantly || "Win instantly!"}"</div>
+                            <div className="text-brand-yellow mb-0.5 text-[10px]">★★★★★</div>
+                            <div className="text-center text-[9px] italic text-white">"{t.winInstantly || "Win instantly!"}"</div>
                         </div>
                     ))}
                 </div>
