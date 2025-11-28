@@ -207,7 +207,7 @@ const Home = () => {
             </div>
 
             {/* --- LOCKED REWARDS --- */}
-            <div id="cards-section">
+            <div id="cards-section" className="grid grid-cols-2 gap-3 md:grid-cols-4">
                 {
                     [
                         { en: 'Streak', ar: 'تتابع' },
@@ -219,7 +219,7 @@ const Home = () => {
                         return (
                             <div
                                 key={i}
-                                className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-xl border border-white/5 p-3 shadow-lg"
+                                className="group relative flex h-40 w-full flex-col justify-between overflow-hidden rounded-lg border border-white/5 p-2 shadow-lg"
                             >
                                 {/* Background Image */}
                                 <div
@@ -228,17 +228,21 @@ const Home = () => {
                                 />
                                 <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/80 to-transparent" />
 
+                                {/* Background Text */}
+                                <div className="absolute inset-0 z-1 flex items-center justify-center">
+                                    <span className="text-5xl font-black text-white/15 select-none">{cardTitle}</span>
+                                </div>
+
                                 {/* Content */}
                                 <div className="relative z-10 flex items-start justify-between">
-                                    <span className="rounded bg-brand-orange px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">{t.locked || "Locked"}</span>
-                                    <FiLock className="text-white/80" />
+                                    <span className="rounded bg-brand-orange px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-white">{t.locked || "Locked"}</span>
+                                    <FiLock className="h-3 w-3 text-white/80" />
                                 </div>
 
                                 <div className="relative z-10 mt-auto">
-                                    <div className="mb-2 text-center text-lg font-bold text-white">{cardTitle}</div>
                                     <button
                                         onClick={() => handleUnlockClick(i)}
-                                        className="w-full rounded border border-white/10 bg-white/20 py-2 text-xs font-bold text-white backdrop-blur-sm transition-colors hover:bg-brand-orange"
+                                        className="w-full rounded border border-white/10 bg-white/20 px-1 py-1 text-[10px] font-bold text-white backdrop-blur-sm transition-colors hover:bg-brand-orange"
                                     >
                                         {t.unlock || "Unlock"}
                                     </button>
